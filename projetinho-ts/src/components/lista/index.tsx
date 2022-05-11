@@ -1,19 +1,9 @@
-import React from "react";
+
+import { ITarefa } from "../../types/tarefa";
 import Item from "./Item";
 import style from "./style.module.scss";
 
-function Lista() {
-  const tarefas = [
-    {
-      tarefa: "Estudar React",
-      tempo: "02:00:00",
-    },
-    {
-      tarefa: "Estudar TypeScript",
-      tempo: "02:00:00",
-    },
-    { tarefa: "Estudar React Native", tempo: "02:00:00" },
-  ];
+function Lista( {tarefas}: {tarefas: ITarefa[]}) {
   return (
     <aside className={style.listaTarefas}>
       <h2>Lista de estudos</h2>
