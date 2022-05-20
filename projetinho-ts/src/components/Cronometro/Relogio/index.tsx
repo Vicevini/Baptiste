@@ -1,13 +1,17 @@
 import style from './relogio.module.scss';
 
-export default function Relogio(){
+export default function Relogio({ tempo =0 }: { tempo: number | undefined }) {
+  const minutos = Math.floor(tempo / 60);
+  const segundos = tempo % 60;
+  const [minutoDezena, minutoUnidade] = String(minutos).padStart(2, '0').split('');
+  const [segundoDezena, segundoUnidade] = String(segundos).padStart(2, '0').split('');
     return (
       <>
-        <span className={style.relogioNumero}>0</span>
-        <span className={style.relogioNumero}>0</span>
+        <span className={style.relogioNumero}>{minutoDezena}</span>
+        <span className={style.relogioNumero}>{minutoUnidade}</span>
         <span className={style.relogioDivisao}>:</span>
-        <span className={style.relogioNumero}>0</span>
-        <span className={style.relogioNumero}>0</span>
+        <span className={style.relogioNumero}>{segundoDezena}</span>
+        <span className={style.relogioNumero}>{segundoUnidade}</span>
       </>
     );
 }
